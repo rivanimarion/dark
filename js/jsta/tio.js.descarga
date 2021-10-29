@@ -1,0 +1,44 @@
+jQuery(document).ready(function($){function setCookie(cname,cvalue,exdays){var d=new Date();d.setTime(d.getTime()+exdays*24*60*60*1000);var expires='expires='+d.toUTCString();document.cookie=cname+'='+cvalue+';'+expires+';path=/';}
+$('.changeview').on('click',function(){$('body').toggleClass('dark');$(this).toggleClass('on');if(day_mode===0){$('header .logo img').attr('src','/assets/img/logo.png');setCookie('day_mode',1,30);day_mode=1;}else{$('header .logo img').attr('src','/assets/img/logo-dark.png');setCookie('day_mode','',0);day_mode=0;}});var search_opts={callback:function(value){search(value);},wait:400,highlight:true,allowSubmit:false,captureLength:2};$('#search-anime').typeWatch(search_opts);$('#search-anime').on('input',function(){var searchTerm=$(this).val();if(searchTerm.length>1){$('#search-results').html('<div class="text-center">\n'+
+'  <div class="spinner-border" role="status">\n'+
+'    <span class="sr-only">Loading...</span>\n'+
+'  </div>\n'+
+'</div>');}else{$('#search-results').html('<div class="text-center">Escribe al menos 2 caracteres</div>');}});function search(value){if(value.length<2)return;$.post('/api/search',{value:value},function(data){var results_box=$('#search-results');var append='';results_box.empty();if(data.length){append='<div class="results-list">';var limit=data.length>5?5:data.length;for(var i=0;i<limit;i++){var ttext='ANIME';if(data[i].type=='movie')ttext='PELICULA';else if(data[i].type=='ova')ttext='OVA';append+='<article class="anime xs">'+
+'<a href="/anime/'+
+data[i].slug+
+'">'+
+'<div class="thumb"><figure class="fa-play-circle"><img src="/uploads/portadas/80x80/'+
+data[i].id+
+'.jpg" alt="img"></figure></div>'+
+'<h3 class="title">'+
+data[i].title+
+'</h3>'+
+'<span class="badge badge-pill badge-success">'+
+ttext+
+'</span>'+
+'</a>'+
+'</article>';}
+append+='</div>';if(data.length>5)
+append+='<a href="/directorio?q='+encodeURIComponent(value)+'" class="btn btn-light btn-block">Mas resultados</a>';results_box.append(append);}else{results_box.append('<div class="text-center">No se encontraron resultados</li>');}},'json');}
+initEpisode=function(){$('#episode-options').empty();for(x in videos)
+$('#episode-options').append('<li class="nav-item"><a href="#" class="nav-link" data-id="'+
+x+
+'" title="'+
+videos[x][0]+
+'"><span>OPCION</span><span class="fa-play-circle">'+
+(parseInt(x)+1)+
+'</span></a></li>');setTimeout(function(){$('#episode-options li:first a').trigger('click');$('#episode-options li a').tooltip({boundary:'window',placement:'bottom'});},100);};$(document).on('click','#episode-options li a',function(e){e.preventDefault();$('#episode-options li a').tooltip('hide');var video=videos[$(this).data('id')];console.log($(this).data('id'));$('#episode-options li a').removeClass('active');$(this).addClass('active');$('#video-container').html('<iframe width="560" height="315" src="'+video[1]+'" frameborder="0" allowfullscreen></iframe>');return false;});$('#episodes-order').click(function(e){e.preventDefault();episodes.reverse();episodes_details.reverse();episodesList();});episodesList=function(){$('.episodes-list').empty();for(var x in episodes){$('.episodes-list').append('<li><a class="fa-play-circle d-inline-flex align-items-center rounded" href="/ver/'+
+anime_info[1]+
+'-'+
+episodes[x]+
+'"><figure><img src="/uploads/thumbs/'+
+anime_info[0]+
+'.jpg" alt="'+
+anime_info[2]+
+'"></figure><div class="flex-grow-1"><p>'+
+anime_info[2]+
+' <span>Episodio '+
+episodes[x]+
+'</span></p><span>'+
+episodes_details[x]+
+'</span></div></a></li>');}};$('#reset').click(function(e){e.preventDefault();window.location.href='/directorio';});});
