@@ -38,7 +38,7 @@ function random_posts(json) {
             }
         };
         document.write('<li>');
-        document.write('<a href="' + randompostsurl + '" rel="nofollow"><img alt="' + randompoststitle + '" src="' + randompoststhumb + '"/></a>');
+        document.write('<a href="' + randompostsurl + '" rel="nofollow"><figure alt="' + randompoststitle + '" src="' + randompoststhumb + '"/></a>');
         document.write('<div><a href="' + randompostsurl + '" rel="nofollow">' + randompoststitle + '</a></div>');
         if (randomposts_details == 'yes') {
             document.write('<span><div  class="random-info">' + randomposts_date.substring(8, 10) + '.' + randomposts_date.substring(5, 7) + '.' + randomposts_date.substring(0, 4) + ' - ' + randomposts_commentsnum) + '</div></span>'
