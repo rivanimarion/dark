@@ -1,34 +1,7 @@
 /* Google Font CDN Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-::selection{
-  background: #6d50e2;
-  color: #fff;
-}
 
-.container .topic{
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.content .list{
-  display: flex;
-  width: 20%;
-  margin-right: 50px;
-  position: relative;
-}
-.content .list label{
-  height: 60px;
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 60px;
-  cursor: pointer;
-  padding-left: 25px;
-  transition: all 0.5s ease;
-  color: #333;
-  z-index: 12;
-}
 #home:checked ~ .list label.home,
 #blog:checked ~ .list label.blog,
 #help:checked ~ .list label.help,
