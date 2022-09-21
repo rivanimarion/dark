@@ -24,24 +24,10 @@
   align-items: center;
   justify-content: space-between;
 }
-.content .list{
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  margin-right: 50px;
-  position: relative;
-}
-.content .list label{
-  height: 60px;
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 60px;
-  cursor: pointer;
-  padding-left: 25px;
-  transition: all 0.5s ease;
-  color: #333;
-  z-index: 12;
-}
+
+
+
+
 #home:checked ~ .list label.home,
 #blog:checked ~ .list label.blog,
 #help:checked ~ .list label.help,
