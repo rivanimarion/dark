@@ -55,16 +55,7 @@
 .content .list label:hover{
   color: #6d50e2;
 }
-.content .slider{
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 60px;
-  width: 100%;
-  border-radius: 12px;
-  background: #6d50e2;
-  transition: all 0.4s ease;
-}
+
 #home:checked ~ .list .slider{
   top: 0;
 }
