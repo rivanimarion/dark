@@ -1,6 +1,25 @@
 /* Google Font CDN Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+.content .text-content{
+  width: 80%;
+  height: 100%;
+}
+.content .text{
+  display: none;
+}
+.content .text .title{
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.content .text-content .home{
+  display: block;
+}
+
+
+
 
 #home:checked ~ .list label.home,
 #blog:checked ~ .list label.blog,
