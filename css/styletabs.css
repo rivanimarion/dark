@@ -25,13 +25,7 @@
   justify-content: space-between;
 }
 
-.content .list{
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  margin-right: 50px;
-  position: relative;
-}
+
 .content .list label{
   height: 60px;
   font-size: 22px;
