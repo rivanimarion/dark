@@ -1,18 +1,6 @@
 /* Google Font CDN Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body{
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #dad3f8;
-}
+
 ::selection{
   background: #6d50e2;
   color: #fff;
@@ -89,24 +77,10 @@ body{
 #about:checked ~ .list .slider{
   top: 240px;
 }
-.content .text-content{
-  width: 80%;
-  height: 100%;
-}
-.content .text{
-  display: none;
-}
-.content .text .title{
-  font-size: 25px;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-.content .text p{
-  text-align: justify;
-}
-.content .text-content .home{
-  display: block;
-}
+
+
+
+
 #home:checked ~ .text-content .home,
 #blog:checked ~ .text-content .blog,
 #help:checked ~ .text-content .help,
